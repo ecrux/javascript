@@ -1,0 +1,97 @@
+<!--
+
+  Autor: Edwar Cruz (Ecrux)
+  Descripción: Es una calculadora muy sencilla echa en javascript, que hace las operaciones basicas, sumar,restar, multiplicar, dividir, potencia y raiz.
+  Description: This is a simple program makes on javascript, this contains basic operations, 
+  add, subtract , multiply, divide, potentiation and root.  
+  Fecha: 19/09/2016
+
+
+-->
+
+<html leng="ES">
+<head> 
+   <title>
+       Ejercicio Script
+   </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF8"/>   
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+<h1>Este sera una practica con JavaScript</h1>
+<a href="ejemplo1.php">Ir</a>
+ <script type="text/javascript">
+    alert ("Bienvenidos a mi ejercicio");   
+    console.log("Camilo"); 
+
+    function suma(){
+        var a= (document.getElementById('uno').value);
+        var b= (document.getElementById('dos').value);
+        var opera=(document.getElementById('op').value);
+        if (a=="") {
+          document(document.getElementById('tres').value= "0");
+        }else if(b==""){
+          document(document.getElementById('tres').value= "0");
+        }else{ 
+            if(opera=="+"){
+              var c= parseInt(a) + parseInt(b);
+            }else if(opera=="-"){
+              var c= parseInt(a) - parseInt(b);
+            }else if(opera=="*"){
+              var c= parseInt(a) * parseInt(b);
+            }else if(opera=="/"){
+              if(b=='0'){
+                var c="Coloque un numero > 0";
+              }else{  
+              var c= parseInt(a) / parseInt(b);};
+            }else if(opera=="R"){
+              if (parseInt(a)<0) {
+                var c="La base no debe ser -";
+              }else{
+              var c= Math.pow(parseInt(a), (1/parseInt(b)));
+              }
+            }else if (opera=="^") {
+              var c= Math.pow(parseInt(a), parseInt(b));
+            }
+            document(document.getElementById('tres').value= c);
+        } 
+    }
+    function operacion(){
+        var s= (document.getElementById("sel").value);
+        if(s=="suma"){
+        document((document.getElementById("campos").style.display='block') + (document.getElementById('uno').value='') & (document.getElementById('op').value='+') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }else if(s=="resta"){
+          document((document.getElementById("campos").style.display='block') + (document.getElementById('uno').value='') & (document.getElementById('op').value='-') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }else if(s=="multiplicar"){
+          document((document.getElementById("campos").style.display='block') + (document.getElementById('uno').value='') & (document.getElementById('op').value='*') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }else if(s=="dividir"){
+          document((document.getElementById("campos").style.display='block') + (document.getElementById('uno').value='') & (document.getElementById('op').value='/') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }else if(s=="raiz"){
+          document((document.getElementById("campos").style.display='block') + (document.getElementById('uno').value='') & (document.getElementById('op').value='R') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }else if(s=="elejir"){
+          document((document.getElementById("campos").style.display='none') + (document.getElementById('uno').value='') & (document.getElementById('op').value='') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }else if(s=="potencia"){
+          document((document.getElementById("campos").style.display='block') + (document.getElementById('uno').value='') & (document.getElementById('op').value='^') + (document.getElementById('dos').value='') + (document.getElementById('tres').value=''));
+        }
+    }
+ </script> 
+<select name="sel" id="sel" onchange="operacion()" >
+   <option value="elejir" >Operación</option>
+   <option value="suma" >Sumar</option>
+   <option value="resta">Restar</option>
+   <option value="multiplicar">Multiplicar</option>
+   <option value="dividir">Dividir</option>
+   <option value="raiz">Raiz</option>
+   <option value="potencia">Potencia</option>
+</select>
+<div id="campos" style='display:none;'>
+    <br> <br>
+    <input id="uno" type='text' onkeyup="suma();"> 
+    <input id="op" type='text'> 
+    <input id="dos" type='text' Onkeyup="suma();"> 
+    = <input id="tres" type='text'>
+    <br><br>
+</div>
+
+</body>
+</html>
